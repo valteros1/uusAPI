@@ -1,3 +1,7 @@
+import express, { Request, Response, Application } from 'express';
+
+
+const app: Application = express();
 
 const db = {
     users: [
@@ -34,5 +38,7 @@ const db = {
     }
     ],
 }
+
+
 
 export default db;
