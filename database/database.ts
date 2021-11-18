@@ -1,6 +1,8 @@
 import express, { Request, Response, Application } from 'express';
 
 
+
+
 const app: Application = express();
 
 const db = {
@@ -23,14 +25,14 @@ const db = {
         Challenge: 'Tee midagi kehale'
     }
     ],
-    challengeMind: [
+    challengesMind: [
     {   
         id: 1,
         Challenge: 'Tee midagi vaimule'
 
     }     
     ],
-    challengeStomach: [
+    challengesStomach: [
     {
         id: 1,
         Challenge: 'Midagi kõhule'
