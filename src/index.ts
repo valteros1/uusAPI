@@ -4,6 +4,9 @@ import db from '../database/database';
 const app: Express = express();
 const port: number = 3000;
 const created: number = 201;
+const noContent: number = 204;
+const notFound: number = 404;
+app.use(express.json());
 
 app.get('/', (req: Request, res: Response) => {
   res.status(200).json({
@@ -88,6 +91,70 @@ app.post('/users', (req: Request, res: Response) =>{
       id,
     });
 
+});
+
+app.post('/challengesBody', (req: Request, res: Response) =>{
+  const { Challenge } = req.body;
+  const id = db.challengesBody.length + 1;
+  db.challengesBody.push({
+      id,
+      Challenge,
+  });
+  
+  console.log(req.method);
+  res.status(created).json({
+      id,
+    });
+
+});
+
+app.post('/challengesMind', (req: Request, res: Response) =>{
+  const { Challenge } = req.body;
+  const id = db.challengesMind.length + 1;
+  db.challengesMind.push({
+      id,
+      Challenge,
+  });
+  
+  console.log(req.method);
+  res.status(created).json({
+      id,
+    });
+
+});
+
+app.post('/challengesStomach', (req: Request, res: Response) =>{
+  const { Challenge } = req.body;
+  const id = db.challengesStomach.length + 1;
+  db.challengesStomach.push({
+      id,
+      Challenge,
+  });
+  
+  console.log(req.method);
+  res.status(created).json({
+      id,
+    });
+
+});
+
+app.delete('/users/:id', (req: Request, res: Response) =>{
+
+  const id: number = parseInt(req.params.id);
+  if (!id) {
+    return res.status(400).json({
+      error: 'No valid id provided',
+    });
+  }
+  const index = db.users.findIndex((element) => element.id === id);
+  if (index < 0) {
+    return res.status(notFound).json({
+      message: `User not found with id: ${id}`,
+    });
+  }
+  db.users.splice(index, 1);
+  return res.status(noContent).send();
+  
 });
 
 export default app;
