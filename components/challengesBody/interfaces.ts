@@ -3,4 +3,4 @@ interface challengesBody {
     challenge: string;
 }
 
-export default challengesBody;;
+export default challengesBody;

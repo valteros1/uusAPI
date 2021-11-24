@@ -7,12 +7,17 @@ import challengesMindRouter from '../components/challengesMind/routes';
 import challengesStomachRouter from '../components/challengesStomach/routes';
 import challengesBodyRouter from '../components/challengesBody/routes';
 import usersRouter from '../components/users/routes';
+import UsersController from '../components/users/controller';
+import authController from '../components/authentication/controller';
  
 const app: Express = express();
 const port: number = 3000;
 const created: number = 201;
 const noContent: number = 204;
 const notFound: number = 404;
+
+app.post('./login', authController.login);
+
 app.use(express.json());
 app.use(cors());
 
@@ -22,6 +27,7 @@ app.use('/challengesStomach', challengesStomachRouter);
 app.use('/challengesBody', challengesBodyRouter);
 app.use('/users', usersRouter);
 
+app.post('/users', UsersController.createUser);
 
 
 app.get('/', (req: Request, res: Response) => {
@@ -93,28 +99,35 @@ app.listen(port, () => {
 // });
 
 
-app.post('/users', (req: Request, res: Response) =>{
-  const {firstName, lastName } = req.body;
-  const id = db.users.length + 1;
-  db.users.push({
-      id,
-      firstName,
-      lastName,
-  });
-  
-  console.log(req.method);
-  res.status(created).json({
-      id,
-    });
 
-});
+// app.post('/users', (req: Request, res: Response) =>{
+//   const {firstName, lastName, email, password, role } = req.body;
+//   const id = db.users.length + 1;
+//   db.users.push({
+//       id,
+//       firstName,
+//       lastName,
+//       email,
+//       password,
+//       role,
+
+//   });
+  
+//   console.log(req.method);
+//   res.status(created).json({
+//       id,
+//     });
+
+// });
+
+
 
 app.post('/challengesBody', (req: Request, res: Response) =>{
-  const { Challenge } = req.body;
+  const { challenge } = req.body;
   const id = db.challengesBody.length + 1;
   db.challengesBody.push({
       id,
-      Challenge,
+      challenge,
   });
   
   console.log(req.method);
@@ -125,11 +138,11 @@ app.post('/challengesBody', (req: Request, res: Response) =>{
 });
 
 app.post('/challengesMind', (req: Request, res: Response) =>{
-  const { Challenge } = req.body;
+  const { challenge } = req.body;
   const id = db.challengesMind.length + 1;
   db.challengesMind.push({
       id,
-      Challenge,
+      challenge,
   });
   
   console.log(req.method);
@@ -140,11 +153,11 @@ app.post('/challengesMind', (req: Request, res: Response) =>{
 });
 
 app.post('/challengesStomach', (req: Request, res: Response) =>{
-  const { Challenge } = req.body;
+  const { challenge } = req.body;
   const id = db.challengesStomach.length + 1;
   db.challengesStomach.push({
       id,
-      Challenge,
+      challenge,
   });
   
   console.log(req.method);
