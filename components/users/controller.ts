@@ -76,7 +76,8 @@ const UsersController = {
     };
     UsersService.updateUser(updateUser);
     return res.status(200).json({});
-  }
+  },
+  
 
  
  
@@ -84,24 +85,7 @@ const UsersController = {
 
 };
 
-const login = async (req: Request, res: Response) => {
-  const { email, password } = req.body;
-  const user = usersService.getUserByEmail(email);
-  if(!user) {
-    return res.status(404).json({
-      error: 'User not found',
-    });
-  }
-  const match = await hashService.compare(password, user.password);
-  if (!match) {
-    return res.status(401).json({
-      error: 'check password',
-    })
-  }
-  return res.status(200).json({
-    token: 'token',
-  })
-}
+
 
 // const getUsers = (req: Request, res: Response) => {
 //   const users = usersService.getUsers();
@@ -115,4 +99,4 @@ const login = async (req: Request, res: Response) => {
 
 
 
-export {UsersController, login};
+export default UsersController;
