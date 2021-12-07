@@ -16,10 +16,12 @@ const created: number = 201;
 const noContent: number = 204;
 const notFound: number = 404;
 
-app.post('./login', authController.login);
-
 app.use(express.json());
 app.use(cors());
+
+app.post('/login', authController.login);
+
+
 
 
 app.use('/challengesMind', challengesMindRouter);

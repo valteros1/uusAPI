@@ -1,6 +1,8 @@
 import {Request, Response} from 'express';
 import UsersService from './services';
 import { NewUser, UpdateUser } from './interfaces';
+import usersService from './services';
+import hashService from '../general/services/hashService';
 
 const UsersController = {
 
@@ -76,6 +78,41 @@ const UsersController = {
     return res.status(200).json({});
   }
 
+ 
+ 
+  
+
+};
+
+const login = async (req: Request, res: Response) => {
+  const { email, password } = req.body;
+  const user = usersService.getUserByEmail(email);
+  if(!user) {
+    return res.status(404).json({
+      error: 'User not found',
+    });
+  }
+  const match = await hashService.compare(password, user.password);
+  if (!match) {
+    return res.status(401).json({
+      error: 'check password',
+    })
+  }
+  return res.status(200).json({
+    token: 'token',
+  })
 }
 
-export default UsersController;
+// const getUsers = (req: Request, res: Response) => {
+//   const users = usersService.getUsers();
+//   return res.status(200).json({
+//     return res.status(200).json({
+//       users,
+//     })
+//   });
+// }
+
+
+
+
+export {UsersController, login};

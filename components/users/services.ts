@@ -58,7 +58,9 @@ const usersService = {
       getUserById: (id: number): User | undefined => {
         const user = db.users.find((element) => element.id === id);
         return user;
-      }
+      },
+
+     
       
 
       };
