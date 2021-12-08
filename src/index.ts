@@ -10,6 +10,10 @@ import usersRouter from '../components/users/routes';
 import UsersController from '../components/users/controller';
 import authController from '../components/authentication/controller';
  
+
+import isLoggedIn from '../components/authentication/isLoggedInMiddleware';
+
+
 const app: Express = express();
 const port: number = 3000;
 const created: number = 201;
@@ -19,7 +23,14 @@ const notFound: number = 404;
 app.use(express.json());
 app.use(cors());
 
+
+
 app.post('/login', authController.login);
+app.post('/users', UsersController.createUser);
+
+// app.use(isLoggedIn);
+
+
 
 
 
@@ -29,7 +40,8 @@ app.use('/challengesStomach', challengesStomachRouter);
 app.use('/challengesBody', challengesBodyRouter);
 app.use('/users', usersRouter);
 
-app.post('/users', UsersController.createUser);
+
+
 
 
 app.get('/', (req: Request, res: Response) => {
