@@ -41,7 +41,9 @@ app.use(isLoggedIn);
 app.use('/challengesMind', challengesMindRouter);
 app.use('/challengesStomach', challengesStomachRouter);
 app.use('/challengesBody', challengesBodyRouter);
-app.use('/users', isAdmin, usersRouter);
+app.use('/users',isAdmin, usersRouter);
+
+// isAdmin, usersitest välja hetkel kommenteeritud, et pärida andmeid andmebaasist
 
 
 

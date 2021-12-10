@@ -5,10 +5,10 @@ import hashService from '../general/services/hashService';
 
 const UsersController = {
 
-    getAll: (req: Request, res: Response) => {
+    getAll: async (req: Request, res: Response) => {
 
        
-        const data = UsersService.getUsers();  
+        const data = await UsersService.getUsers();  
         
         return res.status(200).json({
         data,

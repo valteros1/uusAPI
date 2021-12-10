@@ -40,7 +40,12 @@ const db: Db = {
     challengesBody: [
     {
         id: 1,
-        challenge: 'Tee midagi kehale'
+        challenge: 'Tee midagi kehale',
+        
+    },
+    { 
+        id: 2,
+        challenge: 'Tee midagi kehale2'
     }
     ],
     challengesMind: [
