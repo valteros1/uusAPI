@@ -24,6 +24,7 @@ const db: Db = {
         lastName: 'Rosenfeld',
         email: 'valter@rosenfeld.ee',
         password: '$2b$10$Um6D5jbR9.u842c6hU.t1egTTTFs4uu.c8BO4ewCpE3LYqe28nMmK',
+        // parool on valter
         role: 'Admin',
     },
     {
@@ -32,6 +33,7 @@ const db: Db = {
         lastName: 'Joomas',
         email: 'toomas@joomas.ee',
         password: '$2b$10$UsUKvNVZiMQao0qwsHKsYu0ZwB0m09.vLzjpUhawf32tY1WpygPHi',
+        // parool on toomas
         role: 'User',
     }
     ],

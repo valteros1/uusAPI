@@ -6,7 +6,8 @@ import hashService from '../general/services/hashService';
 const UsersController = {
 
     getAll: (req: Request, res: Response) => {
-        console.log(req.headers);
+
+       
         const data = UsersService.getUsers();  
         
         return res.status(200).json({
