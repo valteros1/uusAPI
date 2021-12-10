@@ -4,15 +4,16 @@ import express, { Request, Response, Express } from 'express';
 import db from './database/database';
 // import db from './**/*/database/database';
 
-import challengesMindRouter from './src/components/challengesMind/routes';
-import challengesStomachRouter from './src/components/challengesStomach/routes';
-import challengesBodyRouter from './src/components/challengesBody/routes';
-import usersRouter from './src/components/users/routes';
-import UsersController from './src/components/users/controller';
-import authController from './src/components/authentication/controller';
+import challengesMindRouter from '../src/components/challengesMind/routes';
+
+import challengesStomachRouter from '../src/components/challengesStomach/routes';
+import challengesBodyRouter from '../src/components/challengesBody/routes';
+import usersRouter from '../src/components/users/routes';
+import UsersController from '../src/components/users/controller';
+import authController from '../src/components/authentication/controller';
  
 
-import isLoggedIn from './src/components/authentication/isLoggedInMiddleware';
+import isLoggedIn from '../src/components/authentication/isLoggedInMiddleware';
 
 
 const app: Express = express();

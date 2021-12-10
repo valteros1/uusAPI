@@ -1,11 +1,11 @@
 import express, {Router} from 'express';
 import controller from './controller';
 
-const router = express.Router();
+const challengesMindRouter = express.Router();
 
-router
+challengesMindRouter
     .get('/',controller.getAll)
     .get('/:id',controller.getById)
     
 
-export default router;
+export default challengesMindRouter;
