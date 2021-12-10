@@ -5,28 +5,16 @@ import hashService from '../general/services/hashService';
 
 
 const usersService = {
-    getUsers:( req: Request, res: Response ) => {
+    getUsers:( ) => {
         const {users} = db;
-        return res.status(200).json({
-            users,
-        })
-    },   
-    getById:(req: Request, res: Response ) =>{
-        const id: number = parseInt(req.params.id, 10);
-        if (!id) {
-          return res.status(404).json({
-            error: 'No valid id provided',
-          });
-        }
-        const user = db.users.find((element) => element.id === id);
-        if (!user) {
-          return res.status(404).json({
-            error: `No user found with id: ${id}`,
-          });
-        }
-        return res.status(200).json({
-          user,
-        });
+        return users;
+        
+    },  
+    getById:( id: number ) : User | undefined =>{
+      const user = db.users.find((element) => element.id === id);
+      return user;
+
+
       },
       getUserByEmail: (email: string): User | undefined => {
         const user = db.users.find((element) => element.email === email);
@@ -55,12 +43,7 @@ const usersService = {
         return true;
       },
      
-      getUserById: (id: number): User | undefined => {
-        const user = db.users.find((element) => element.id === id);
-        return user;
-      },
-
-     
+       
       
 
       };

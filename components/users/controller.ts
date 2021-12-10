@@ -1,21 +1,38 @@
 import {Request, Response} from 'express';
 import UsersService from './services';
-import { NewUser, UpdateUser } from './interfaces';
-import usersService from './services';
+import { NewUser, UpdateUser, User } from './interfaces';
 import hashService from '../general/services/hashService';
 
 const UsersController = {
 
     getAll: (req: Request, res: Response) => {
         console.log(req.headers);
-        const data = UsersService.getUsers(req , res );  
+        const data = UsersService.getUsers();  
+        
         return res.status(200).json({
         data,
+        
       });
   },
   getById: (req: Request, res: Response) => {
-        const data=UsersService.getById(req , res );
-        return data;
+        
+        const id: number = parseInt(req.params.id, 10);
+        const user: User | undefined = UsersService.getById(id);
+         if (!id) {
+          return res.status(404).json({
+            error: 'No valid id provided',
+         });
+         
+         }
+               if (!user) {
+          return res.status(404).json({
+            error: `No user found with id: ${id}`,
+          });
+        }
+        return res.status(200).json({
+          user,
+        });
+        
   },
   createUser: async (req: Request, res: Response) => {
       const {firstName, lastName, password, email} = req.body;
@@ -64,7 +81,7 @@ const UsersController = {
         error: 'Nothing to update',
       });
     }
-    const user = UsersService.getUserById(id);
+    const user = UsersService.getById(id);
     if (!user) {
       return res.status(404).json({
         error: `No user found with id: ${id}`,

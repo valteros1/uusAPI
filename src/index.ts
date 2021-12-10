@@ -28,7 +28,7 @@ app.use(cors());
 app.post('/login', authController.login);
 app.post('/users', UsersController.createUser);
 
-// app.use(isLoggedIn);
+app.use(isLoggedIn);
 
 
 
