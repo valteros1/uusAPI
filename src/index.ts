@@ -1,17 +1,18 @@
 import { SSL_OP_MICROSOFT_BIG_SSLV3_BUFFER } from 'constants';
 import cors from 'cors';
 import express, { Request, Response, Express } from 'express';
-import db from '../database/database';
+import db from './database/database';
+// import db from './**/*/database/database';
 
-import challengesMindRouter from '../components/challengesMind/routes';
-import challengesStomachRouter from '../components/challengesStomach/routes';
-import challengesBodyRouter from '../components/challengesBody/routes';
-import usersRouter from '../components/users/routes';
-import UsersController from '../components/users/controller';
-import authController from '../components/authentication/controller';
+import challengesMindRouter from './src/components/challengesMind/routes';
+import challengesStomachRouter from './src/components/challengesStomach/routes';
+import challengesBodyRouter from './src/components/challengesBody/routes';
+import usersRouter from './src/components/users/routes';
+import UsersController from './src/components/users/controller';
+import authController from './src/components/authentication/controller';
  
 
-import isLoggedIn from '../components/authentication/isLoggedInMiddleware';
+import isLoggedIn from './src/components/authentication/isLoggedInMiddleware';
 
 
 const app: Express = express();
@@ -29,7 +30,6 @@ app.post('/login', authController.login);
 app.post('/users', UsersController.createUser);
 
 app.use(isLoggedIn);
-
 
 
 
