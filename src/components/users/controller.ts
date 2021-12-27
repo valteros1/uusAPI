@@ -8,7 +8,8 @@ const UsersController = {
     getAll: async (req: Request, res: Response) => {
 
        
-        const data = await UsersService.getUsers();  
+        const data = await 
+        UsersService.getUsers();  
         
         return res.status(200).json({
         data,

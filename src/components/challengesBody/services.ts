@@ -1,5 +1,7 @@
 import {Request, Response} from 'express';
 import db from '../../database/database';
+import { NewBody } from './interfaces';
+import pool from '../../database/databaseMysql';
 
 const challengesBodyService = {
     getChallengesBody:( req: Request, res: Response ) => {
@@ -24,6 +26,12 @@ const challengesBodyService = {
         return res.status(200).json({
           challengesBody,
         });
+      },
+      createBody: async (createBody: NewBody) => {
+      
+       const result: any = await pool.query('INSERT INTO challengesBody SET challenge = ?', [createBody]);
+        console.log(result);
+        return result.insertId;
       }
 }
 

@@ -1,7 +1,7 @@
 import express, { Request, Response, Application } from 'express';
 
 import { User } from '../components/users/interfaces';
-import  challengesBody from '../components/challengesBody/interfaces';
+import  { challengesBody } from '../components/challengesBody/interfaces';
 import challengesMind from '../components/challengesMind/interfaces';
 import challengesStomach from '../components/challengesStomach/interfaces';
 

@@ -3,4 +3,8 @@ interface challengesBody {
     challenge: string;
 }
 
-export default challengesBody;
+interface NewBody {
+    challenge: string;
+}
+
+export {challengesBody, NewBody};
