@@ -29,8 +29,9 @@ const challengesBodyService = {
       },
       createBody: async (createBody: NewBody) => {
       
-       const result: any = await pool.query('INSERT INTO challengesBody SET challenge = ?', [createBody]);
-        console.log(result);
+       const [result]: any = await pool.query('INSERT INTO challengesBody SET challenge = ?', [createBody]);
+       
+        // console.log(result.insertId);
         return result.insertId;
       }
 }

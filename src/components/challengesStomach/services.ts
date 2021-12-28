@@ -1,5 +1,7 @@
 import {Request, Response} from 'express';
 import db from '../../database/database';
+import { NewStomach } from './interfaces';
+import pool from '../../database/databaseMysql';
 
 const challengesStomachService = {
     getChallengesStomach:( req: Request, res: Response ) => {
@@ -24,7 +26,14 @@ const challengesStomachService = {
         return res.status(200).json({
           challengesStomach,
         });
-      }
+      },
+      createStomach: async (createStomach: NewStomach) => {
+      
+        const [result]: any = await pool.query('INSERT INTO challengesMind SET challenge = ?', [createStomach]);
+        
+         // console.log(result.insertId);
+         return result.insertId;
+       }
 }
 
 export default challengesStomachService;

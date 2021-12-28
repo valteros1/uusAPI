@@ -13,6 +13,21 @@ const challengesMindController = {
         const data=challengesMindService.getById(req , res );
         return data;
   },
+  createMind: async (req: Request, res: Response) => {  // uus osa
+    const {challengesMind} = req.body;
+
+if (!challengesMind) {
+    return res.status(404).json({
+        error: 'Challenge is required',
+    });
+}
+console.log(challengesMind)
+const id = await challengesMindService.createMind(challengesMind);
+return res.status(200).json({
+    id,
+});
+
+},
 
 }
 

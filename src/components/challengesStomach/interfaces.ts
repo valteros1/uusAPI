@@ -2,5 +2,8 @@ interface challengesStomach {
     id: number;
     challenge: string;
 }
+interface NewStomach {
+    challenge: string;
+}
 
-export default challengesStomach;;
+export { challengesStomach, NewStomach};

@@ -2,5 +2,7 @@ interface challengesMind {
     id: number;
     challenge: string;
 }
-
-export default challengesMind;;
+interface NewMind {
+    challenge: string;
+}
+export {challengesMind, NewMind};

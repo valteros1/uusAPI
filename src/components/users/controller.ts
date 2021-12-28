@@ -99,22 +99,10 @@ const UsersController = {
   },
   
 
- 
- 
-  
+   
 
 };
 
-
-
-// const getUsers = (req: Request, res: Response) => {
-//   const users = usersService.getUsers();
-//   return res.status(200).json({
-//     return res.status(200).json({
-//       users,
-//     })
-//   });
-// }
 
 
 
