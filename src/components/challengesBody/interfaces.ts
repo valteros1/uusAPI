@@ -7,4 +7,8 @@ interface NewBody {
     challenge: string;
 }
 
-export {challengesBody, NewBody};
+interface UpdateBody {
+    challenge?: string;
+}
+
+export {challengesBody, NewBody, UpdateBody};
