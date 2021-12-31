@@ -6,4 +6,8 @@ interface NewStomach {
     challenge: string;
 }
 
-export { challengesStomach, NewStomach};
+interface UpdateStomach {
+    challenge?: string;
+}
+
+export { challengesStomach, NewStomach, UpdateStomach};

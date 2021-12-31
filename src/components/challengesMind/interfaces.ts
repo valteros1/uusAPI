@@ -5,4 +5,8 @@ interface challengesMind {
 interface NewMind {
     challenge: string;
 }
-export {challengesMind, NewMind};
+
+interface UpdateMind {
+    challenge?: string;
+}
+export {challengesMind, NewMind, UpdateMind};

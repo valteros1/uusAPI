@@ -4,28 +4,19 @@ import { NewBody, UpdateBody } from './interfaces';
 import pool from '../../database/databaseMysql';
 
 const challengesBodyService = {
-    getChallengesBody:( req: Request, res: Response ) => {
-        const {challengesBody} = db;
-        return res.status(200).json({
-            challengesBody,
-        })
+    getChallengesBody: async( ) => {
+        const [challengesBody] = await pool.query('SELECT id, challenge FROM challengesbody')
+        return challengesBody;
+        // const {challengesBody} = db;
+        // return res.status(200).json({
+        //     challengesBody,
+        // })
     },
-    getById:(req: Request, res: Response ) =>{
-        const id: number = parseInt(req.params.id, 10);
-        if (!id) {
-          return res.status(404).json({
-            error: 'No valid id provided',
-          });
-        }
-        const challengesBody = db.challengesBody.find((element) => element.id === id);
-        if (!challengesBody) {
-          return res.status(404).json({
-            error: `No challengse found with id: ${id}`,
-          });
-        }
-        return res.status(200).json({
-          challengesBody,
-        });
+    getById: async( id: Number ) =>{
+        // const id: number = parseInt(req.params.id, 10);
+        const [challenge] : any = await pool.query('SELECT id, challenge FROM challengesbody WHERE id = ? ', [id], )
+        // console.log(challenge)
+        return challenge;
       },
       createBody: async (createBody: NewBody) => {
       

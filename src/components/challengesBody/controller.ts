@@ -4,15 +4,30 @@ import  {NewBody, UpdateBody}  from './interfaces';
 
 const challengesBodyController = {
 
-    getAll: (req: Request, res: Response) => {
-        const data = challengesBodyService.getChallengesBody(req , res );  
+    getAll: async (req: Request, res: Response) => {
+        const data = await challengesBodyService.getChallengesBody();  
         return res.status(200).json({
         data,
       });
   },
-    getById: (req: Request, res: Response) => {
-        const data=challengesBodyService.getById(req , res );
-        return data;
+    getById: async (req: Request, res: Response) => {
+
+        const id: number = parseInt(req.params.id, 10);
+        
+         if (!id) {
+             return res.status(404).json({
+               error: 'No valid id provided',
+             });
+           }
+           const data = await challengesBodyService.getById(id);
+          if (!data) {
+            return res.status(404).json({
+              error: `No challengse found with id: ${id}`,
+            });
+          } 
+          console.log(data);
+          return res.status(200).json({data,});
+        
   },  
   
     createBody: async (req: Request, res: Response) => {  // uus osa
