@@ -7,15 +7,12 @@ const challengesBodyService = {
     getChallengesBody: async( ) => {
         const [challengesBody] = await pool.query('SELECT id, challenge FROM challengesbody')
         return challengesBody;
-        // const {challengesBody} = db;
-        // return res.status(200).json({
-        //     challengesBody,
-        // })
+  
     },
     getById: async( id: Number ) =>{
-        // const id: number = parseInt(req.params.id, 10);
+     
         const [challenge] : any = await pool.query('SELECT id, challenge FROM challengesbody WHERE id = ? ', [id], )
-        // console.log(challenge)
+        
         return challenge;
       },
       createBody: async (createBody: NewBody) => {

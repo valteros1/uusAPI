@@ -35,12 +35,12 @@ app.get('/ping', ping);
 
 
 
-// app.post('/login', authController.login);
+ app.post('/login', authController.login);
 app.post('/users', UsersController.createUser);
 
 
 
-// app.use(isLoggedIn);
+ app.use(isLoggedIn);
 
 
 
@@ -49,7 +49,7 @@ app.post('/users', UsersController.createUser);
 app.use('/challengesMind', challengesMindRouter);
 app.use('/challengesStomach', challengesStomachRouter);
 app.use('/challengesBody', challengesBodyRouter);
-app.use('/users', usersRouter); //isAdmin vahele pista.
+app.use('/users',isAdmin, usersRouter); //isAdmin vahele pista.
 
 // isAdmin, usersitest välja hetkel kommenteeritud, et pärida andmeid andmebaasist
 
