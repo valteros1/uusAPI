@@ -50,27 +50,27 @@ const challengesBodyController = {
     const id: number = parseInt(req.params.id, 10);
     const { challenge } = req.body;
     if (!id) {
-      return res.status(404).json({
+      return res.status(401).json({
         error: 'No valid id provided',
       });
     }
     if (!challenge) {
-      return res.status(404).json({
+      return res.status(402).json({
         error: 'Nothing to update',
       });
     }
     const updateBody: UpdateBody = {
         challenge
       };
-    const body = await challengesBodyService.updateBody(id, updateBody);
-    if (!body) {
+    const changed = await challengesBodyService.updateBody(id, updateBody);
+    if (changed == 0) {
       return res.status(404).json({
         error: `No body found with id: ${id}`,
       });
     }
   
    
-    return res.status(200).json({body,});
+    return res.status(200).json({changed,});
   },
 
   deleteBody: async (req: Request, res: Response) => {

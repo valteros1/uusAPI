@@ -31,6 +31,7 @@ const challengesMindController = {
   createMind: async (req: Request, res: Response) => {  // uus osa
     const {challengesMind} = req.body;
 
+    console.log(challengesMind)
 if (!challengesMind) {
     return res.status(404).json({
         error: 'Challenge is required',
