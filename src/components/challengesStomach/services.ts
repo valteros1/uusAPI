@@ -16,7 +16,7 @@ const challengesStomachService = {
       },
       createStomach: async (createStomach: NewStomach) => {
       
-        const [result]: any = await pool.query('INSERT INTO challengesMind SET challenge = ?', [createStomach]);
+        const [result]: any = await pool.query('INSERT INTO challengesstomach SET challenge = ?', [createStomach]);
           
          // console.log(result.insertId);
          return result.insertId;

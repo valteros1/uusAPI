@@ -26,7 +26,7 @@ const challengesBodyService = {
       updateBody: async (id: Number, challenge: UpdateBody) => {
 
         const [index]: any = await pool.query('UPDATE challengesbody SET ? WHERE ID = ? ', [challenge, id]);
-        return index;
+        return index.affectedRows;
 
       },
 
