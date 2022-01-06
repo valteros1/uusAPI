@@ -82,9 +82,7 @@ Päringud MYSQL
 INSERT INTO users(id)
 VALUE("1") ;
 
-INSERT INTO users(firstName, lastName, email, password, role) 
-VALUES("Valter", "Rosenfeld", "valter@rosenfeld.ee", "$2b$10$Um6D5jbR9.u842c6hU.t1egTTTFs4uu.c8BO4ewCpE3LYqe28nMmK", "Admin"),
-("Toomas", "Joomas", "toomas@joomas.ee", "$2b$10$UsUKvNVZiMQao0qwsHKsYu0ZwB0m09.vLzjpUhawf32tY1WpygPHi", "User");
+
 
 INSERT INTO challengesBody(id, challenge)
 VALUES ( "1", "Tee midagi kehale" );
