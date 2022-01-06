@@ -46,8 +46,8 @@ describe('challengesMind controller', () => {
             expect(response.body).to.be.a('object');
             expect(response.statusCode).to.equal(200);
             expect(response.body).to.have.key('data');
-            expect(response.body.challengesMind).to.be.a('array');
-            expect(response.body.challengesMind.length).to.greaterThan(0);
+            expect(response.body.data).to.be.a('array');
+            expect(response.body.data.length).to.greaterThan(0);
           });
          
     });

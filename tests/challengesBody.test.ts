@@ -67,7 +67,9 @@ describe('challengesBody controller', () => {
       });
 
         it('responds with code 404 and error message', async () => {
-            const response = await request(app).get('/challengesBody/1');
+            const response = await request(app)
+            .get('/challengesBody/231')
+                     
             expect(response.body).to.be.a('object');
             expect(response.statusCode).to.equal(404);
             expect(response.body).to.have.key('error');
@@ -75,7 +77,7 @@ describe('challengesBody controller', () => {
         });
         it('responds with code 401 and error message because of invalid token', async () => {
             const response = await request(app)
-              .get('/challengesBody')
+              .get('/challengesBody/1')
               .set('Authorization', 'Bearer ölkxjdkljdglkjdgöljeöotuiöjkvlnvösodhg');
             expect(response.body).to.be.a('object');
             expect(response.statusCode).to.equal(401);
