@@ -165,7 +165,16 @@
         "/users/{id}": {
             "get": {
                 "description": "get user by id",
-                "parameters": [],
+                "parameters": [      
+                    { 
+                    "name": "id",
+                    "in":"path",
+                    "required": true,
+                    "description": "usersId",
+                    "schema":{
+                        "type": "number"
+                    }
+                }],
                 "responses": {
                     "200": {
                         "description": "users",
@@ -225,7 +234,17 @@
             },
               "delete": {
                 "description": "delete user by ID",
-                "parameters": [],
+                "parameters": [
+                    { 
+                        "name": "id",
+                        "in":"path",
+                        "required": true,
+                        "description": "usersiID",
+                        "schema":{
+                            "type": "number"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "outcome: delete is {id}",
@@ -373,7 +392,16 @@
         "/challengesBody/{id}": {
             "get": {
                 "description": "get user by id",
-                "parameters": [],
+                "parameters": [
+                    { "name": "id",
+                        "in":"path",
+                        "required": true,
+                        "description": "challengesBodyId",
+                        "schema":{
+                            "type": "number"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "challengesBody",
@@ -426,7 +454,16 @@
             },
               "delete": {
                 "description": "delete challenge by ID",
-                "parameters": [],
+                "parameters": [      
+                    { 
+                    "name": "id",
+                    "in":"path",
+                    "required": true,
+                    "description": "challengesStomachId",
+                    "schema":{
+                        "type": "number"
+                    }
+                }],
                 "responses": {
                     "200": {
                         "description": "outcome: delete is {id}",
@@ -574,7 +611,17 @@
         "/challengesMind/{id}": {
             "get": {
                 "description": "get challenge by id",
-                "parameters": [],
+                "parameters": [
+                    { 
+                        "name": "id",
+                        "in":"path",
+                        "required": true,
+                        "description": "challengesMindId",
+                        "schema":{
+                            "type": "number"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "challenge",
@@ -626,8 +673,17 @@
                 }
             },
               "delete": {
-                "description": "delete user by ID",
-                "parameters": [],
+                "description": "delete challenge by ID",
+                "parameters": [      
+                    { 
+                    "name": "id",
+                    "in":"path",
+                    "required": true,
+                    "description": "challengesStomachId",
+                    "schema":{
+                        "type": "number"
+                    }
+                }],
                 "responses": {
                     "200": {
                         "description": "outcome: delete is {id}",
@@ -772,7 +828,17 @@
         "/challengesStomach/{id}": {
             "get": {
                 "description": "get challengesStomach by id",
-                "parameters": [],
+                "parameters": [
+                    { "name": "id",
+                        "in":"path",
+                        "required": true,
+                        "description": "challengesStomachId",
+                        "schema":{
+                            "type": "number"
+                        }
+                    }             
+                   
+                ],
                 "responses": {
                     "200": {
                         "description": "challengesStomach",
@@ -825,7 +891,16 @@
             },
               "delete": {
                 "description": "delete user by ID",
-                "parameters": [],
+                "parameters": [
+                    { "name": "id",
+                        "in":"path",
+                        "required": true,
+                        "description": "challengesStomachId",
+                        "schema":{
+                            "type": "number"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "outcome: delete is {id}",
