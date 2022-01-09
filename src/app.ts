@@ -2,6 +2,8 @@ import { SSL_OP_MICROSOFT_BIG_SSLV3_BUFFER } from 'constants';
 import cors from 'cors';
 import express, { Request, Response, Express } from 'express';
 import db from './database/database';
+import swaggerUi from 'swagger-ui-express';
+import openapi from './openapi.json';
 // import db from './**/*/database/database';
 
 import challengesMindRouter from '../src/components/challengesMind/routes';
@@ -31,6 +33,7 @@ const notFound: number = 404;
 app.use(express.json());
 app.use(cors());
 
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(openapi));
 app.get('/ping', ping);
 
 

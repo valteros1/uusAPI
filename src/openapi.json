@@ -1,0 +1,601 @@
+{
+    "openapi":"3.0.2",
+    "info": {
+      "title":"uusAPI",
+      "version":"1.0"
+    },
+    "servers": [
+      {"url":"http://localhost:3000"}
+    ],
+    "paths": {
+        "/users": {
+            "get": {
+                "description": "get lists of users",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "List of users",
+                        "content": {
+                            "application/json":{
+                                "schema":{
+                                    "type":"object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items":{
+                                                "type": "object",
+                                                "properties": {
+                                                    "id":{
+                                                        "type":"integer",
+                                                        "example":"1,2,3"
+                                                    },
+                                                    "firstName":{
+                                                        "type":"string",
+                                                        "example":"Peeter"
+                                                    },  
+                                                    "lastName":{
+                                                        "type":"string",
+                                                        "example":"Pikk"
+                                                    },
+                                                    "email":{
+                                                        "type":"string",
+                                                        "example":"peeter@pikk.ee"
+                                                    }
+                                        
+                                                }
+                                            }
+
+                                        }
+                                    } 
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "create user",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "creates user",
+                        "content": {
+                            "application/json":{
+                                "schema":{
+                                    "type":"object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items":{
+                                                "type": "object",
+                                                "properties": {
+                                                    "id":{
+                                                        "type":"integer",
+                                                        "example":"1,2,3"
+                                                    },
+                                                    "firstName":{
+                                                        "type":"string",
+                                                        "example":"Peeter"
+                                                    },
+                                                    "lastName":{
+                                                        "type":"string",
+                                                        "example":"Pikk"
+                                                    },
+                                                    "email":{
+                                                        "type":"string",
+                                                        "example":"peeter@pikk.ee"
+                                                    }
+                                        
+                                                }
+                                            }
+
+                                        }
+                                    } 
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not data in user",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "error": {
+                                        "type": "string",
+                                        "example": "first name is required"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    
+                }
+            },
+            "patch": {
+                "description": "updateBody",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "challenge",
+                        "content": {
+                            "application/json":{
+                                "schema":{
+                                    "type":"object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items":{
+                                                "type": "object",
+                                                "properties": {
+                                                   
+                                                    "challenge":{
+                                                        "type":"string",
+                                                        "example":"Something for your Body"
+                                                    }
+                                        
+                                                }
+                                            }
+
+                                        }
+                                    } 
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "delete challenge by ID",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "outcome: delete is {id}",
+                        "content": {
+                            "application/json":{
+                                "schema":{
+                                    "type":"object",
+                                    "properties": {
+                             
+                                    } 
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/challengesBody": {
+            "get": {
+                "description": "get lists of challengesBody",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "List of challenges",
+                        "content": {
+                            "application/json":{
+                                "schema":{
+                                    "type":"object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items":{
+                                                "type": "object",
+                                                "properties": {
+                                                    "id":{
+                                                        "type":"integer",
+                                                        "example":"1,2,3"
+                                                    },
+                                                    "challenge":{
+                                                        "type":"string",
+                                                        "example":"Something for your Body"
+                                                    }
+                                        
+                                                }
+                                            }
+
+                                        }
+                                    } 
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "create challengesBody",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "creates challengesBody",
+                        "content": {
+                            "application/json":{
+                                "schema":{
+                                    "type":"object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items":{
+                                                "type": "object",
+                                                "properties": {
+                                                    "id":{
+                                                        "type":"integer",
+                                                        "example":"1,2,3"
+                                                    },
+                                                    "challenge":{
+                                                        "type":"string",
+                                                        "example":"Something for your Body"
+                                                    }
+                                        
+                                                }
+                                            }
+
+                                        }
+                                    } 
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not data in challenge",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "error": {
+                                        "type": "string",
+                                        "example": "challenge is required"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    
+                }
+            },
+            "patch": {
+                "description": "updateBody",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "challenge",
+                        "content": {
+                            "application/json":{
+                                "schema":{
+                                    "type":"object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items":{
+                                                "type": "object",
+                                                "properties": {
+                                                   
+                                                    "challenge":{
+                                                        "type":"string",
+                                                        "example":"Something for your Body"
+                                                    }
+                                        
+                                                }
+                                            }
+
+                                        }
+                                    } 
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "delete challenge by ID",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "outcome: delete is {id}",
+                        "content": {
+                            "application/json":{
+                                "schema":{
+                                    "type":"object",
+                                    "properties": {
+                             
+                                    } 
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/challengesMind": {
+            "get": {
+                "description": "get lists of challengesMind",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "List of challenges",
+                        "content": {
+                            "application/json":{
+                                "schema":{
+                                    "type":"object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items":{
+                                                "type": "object",
+                                                "properties": {
+                                                    "id":{
+                                                        "type":"integer",
+                                                        "example":"1,2,3"
+                                                    },
+                                                    "challenge":{
+                                                        "type":"string",
+                                                        "example":"Something for your Mind"
+                                                    }
+                                        
+                                                }
+                                            }
+
+                                        }
+                                    } 
+                                }
+                            }
+                        }
+                    }
+                }
+            },   
+            "post": {
+                "description": "create challengesMind",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "creates challengesMind",
+                        "content": {
+                            "application/json":{
+                                "schema":{
+                                    "type":"object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items":{
+                                                "type": "object",
+                                                "properties": {
+                                                    "id":{
+                                                        "type":"integer",
+                                                        "example":"1,2,3"
+                                                    },
+                                                    "challenge":{
+                                                        "type":"string",
+                                                        "example":"Something for your Body"
+                                                    }
+                                        
+                                                }
+                                            }
+
+                                        }
+                                    } 
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not data in challenge",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "error": {
+                                        "type": "string",
+                                        "example": "challenge is required"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    
+                }
+            },
+            "patch": {
+                "description": "updateMind",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "challenge",
+                        "content": {
+                            "application/json":{
+                                "schema":{
+                                    "type":"object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items":{
+                                                "type": "object",
+                                                "properties": {
+                                                   
+                                                    "challenge":{
+                                                        "type":"string",
+                                                        "example":"Something for your Mind"
+                                                    }
+                                        
+                                                }
+                                            }
+
+                                        }
+                                    } 
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "delete challenge by ID",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "outcome: delete is {id}",
+                        "content": {
+                            "application/json":{
+                                "schema":{
+                                    "type":"object",
+                                    "properties": {
+                             
+                                    } 
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/challengesStomach": {
+            "get": {
+                "description": "get lists of challengesStomach",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "List of challenges",
+                        "content": {
+                            "application/json":{
+                                "schema":{
+                                    "type":"object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items":{
+                                                "type": "object",
+                                                "properties": {
+                                                    "id":{
+                                                        "type":"integer",
+                                                        "example":"1,2,3"
+                                                    },
+                                                    "challenge":{
+                                                        "type":"string",
+                                                        "example":"Something for your Stomach"
+                                                    }
+                                        
+                                                }
+                                            }
+
+                                        }
+                                    } 
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "create challengesStomach",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "creates challengesStomach",
+                        "content": {
+                            "application/json":{
+                                "schema":{
+                                    "type":"object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items":{
+                                                "type": "object",
+                                                "properties": {
+                                                    "id":{
+                                                        "type":"integer",
+                                                        "example":"1,2,3"
+                                                    },
+                                                    "challenge":{
+                                                        "type":"string",
+                                                        "example":"Something for your Stomach"
+                                                    }
+                                        
+                                                }
+                                            }
+
+                                        }
+                                    } 
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not data in challenge",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "error": {
+                                        "type": "string",
+                                        "example": "challenge is required"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    
+                }
+            },
+            "patch": {
+                "description": "updateStomach",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "challenge",
+                        "content": {
+                            "application/json":{
+                                "schema":{
+                                    "type":"object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items":{
+                                                "type": "object",
+                                                "properties": {
+                                                   
+                                                    "challenge":{
+                                                        "type":"string",
+                                                        "example":"Something for your Body"
+                                                    }
+                                        
+                                                }
+                                            }
+
+                                        }
+                                    } 
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "delete challenge by ID",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "outcome: delete is {id}",
+                        "content": {
+                            "application/json":{
+                                "schema":{
+                                    "type":"object",
+                                    "properties": {
+                             
+                                    } 
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+    }
+  }
