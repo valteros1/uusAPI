@@ -160,8 +160,70 @@
                         }
                     }
                 }
+            }
+        },
+        "/users/{id}": {
+            "get": {
+                "description": "get user by id",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "users",
+                        "content": {
+                            "application/json":{
+                                "schema":{
+                                    "type":"object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items":{
+                                                "type": "object",
+                                                "properties": {
+                                                    "id":{
+                                                        "type":"integer",
+                                                        "example":"1,2,3"
+                                                    },
+                                                    "firstName":{
+                                                        "type":"string",
+                                                        "example":"Peeter"
+                                                    },  
+                                                    "lastName":{
+                                                        "type":"string",
+                                                        "example":"Pikk"
+                                                    },
+                                                    "email":{
+                                                        "type":"string",
+                                                        "example":"peeter@pikk.ee"
+                                                    }
+                                        
+                                                }
+                                            }
+
+                                        }
+                                    } 
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not valid id provided",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "error": {
+                                        "type": "string",
+                                        "example": "no valid id provided"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             },
-            "delete": {
+              "delete": {
                 "description": "delete user by ID",
                 "parameters": [],
                 "responses": {
@@ -181,6 +243,7 @@
                 }
             }
         },
+
         "/challengesBody": {
             "get": {
                 "description": "get lists of challengesBody",
@@ -218,6 +281,7 @@
                     }
                 }
             },
+            
             "post": {
                 "description": "create challengesBody",
                 "parameters": [],
@@ -303,8 +367,64 @@
                         }
                     }
                 }
+            }
+  
+        },
+        "/challengesBody/{id}": {
+            "get": {
+                "description": "get user by id",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "challengesBody",
+                        "content": {
+                            "application/json":{
+                                "schema":{
+                                    "type":"object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items":{
+                                                "type": "object",
+                                                "properties": {
+                                                    "id":{
+                                                        "type":"integer",
+                                                        "example":"1,2,3"
+                                                    },
+                                                    "challenge":{
+                                                        "type":"string",
+                                                        "example":"Body"
+                                                    }  
+                                                 
+                                        
+                                                }
+                                            }
+
+                                        }
+                                    } 
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not valid id provided",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "error": {
+                                        "type": "string",
+                                        "example": "no valid id provided"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             },
-            "delete": {
+              "delete": {
                 "description": "delete challenge by ID",
                 "parameters": [],
                 "responses": {
@@ -324,6 +444,8 @@
                 }
             }
         },
+              
+        
         "/challengesMind": {
             "get": {
                 "description": "get lists of challengesMind",
@@ -446,9 +568,65 @@
                         }
                     }
                 }
+            }
+          
+        },
+        "/challengesMind/{id}": {
+            "get": {
+                "description": "get challenge by id",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "challenge",
+                        "content": {
+                            "application/json":{
+                                "schema":{
+                                    "type":"object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items":{
+                                                "type": "object",
+                                                "properties": {
+                                                    "id":{
+                                                        "type":"integer",
+                                                        "example":"1,2,3"
+                                                    },
+                                                    "challenge":{
+                                                        "type":"string",
+                                                        "example":"Mind"
+                                                    }  
+                                                 
+                                        
+                                                }
+                                            }
+
+                                        }
+                                    } 
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not valid id provided",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "error": {
+                                        "type": "string",
+                                        "example": "no valid id provided"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             },
-            "delete": {
-                "description": "delete challenge by ID",
+              "delete": {
+                "description": "delete user by ID",
                 "parameters": [],
                 "responses": {
                     "200": {
@@ -589,9 +767,64 @@
                         }
                     }
                 }
+            }
+        },
+        "/challengesStomach/{id}": {
+            "get": {
+                "description": "get challengesStomach by id",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "challengesStomach",
+                        "content": {
+                            "application/json":{
+                                "schema":{
+                                    "type":"object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items":{
+                                                "type": "object",
+                                                "properties": {
+                                                    "id":{
+                                                        "type":"integer",
+                                                        "example":"1,2,3"
+                                                    },
+                                                    "challenge":{
+                                                        "type":"string",
+                                                        "example":"Stomach"
+                                                    }  
+                                                 
+                                        
+                                                }
+                                            }
+
+                                        }
+                                    } 
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not valid id provided",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "error": {
+                                        "type": "string",
+                                        "example": "no valid id provided"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             },
-            "delete": {
-                "description": "delete challenge by ID",
+              "delete": {
+                "description": "delete user by ID",
                 "parameters": [],
                 "responses": {
                     "200": {
