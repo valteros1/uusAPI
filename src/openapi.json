@@ -96,7 +96,7 @@
                         }
                     },
                     "404": {
-                        "description": "Not data in user",
+                        "description": "No first name",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -110,12 +110,14 @@
                                 }
                             }
                         }
+                        
                     }
+                    
                     
                 }
             },
             "patch": {
-                "description": "updateBody",
+                "description": "updateUser",
                 "parameters": [],
                 "responses": {
                     "200": {
@@ -131,9 +133,21 @@
                                                 "type": "object",
                                                 "properties": {
                                                    
-                                                    "challenge":{
+                                                    "id":{
+                                                        "type":"integer",
+                                                        "example":"1"
+                                                    },
+                                                    "firstName":{
                                                         "type":"string",
-                                                        "example":"Something for your Body"
+                                                        "example":"Taavi"
+                                                    },
+                                                    "lastName":{
+                                                        "type":"string",
+                                                        "example":"Tako"
+                                                    },
+                                                    "email":{
+                                                        "type":"string",
+                                                        "example":"taavi@tako.ee"
                                                     }
                                         
                                                 }
@@ -148,7 +162,7 @@
                 }
             },
             "delete": {
-                "description": "delete challenge by ID",
+                "description": "delete user by ID",
                 "parameters": [],
                 "responses": {
                     "200": {
